@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: podinfo
+  name: podinfo
+  namespace: your-project
+spec:
+  port:
+    targetPort: 9898
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: podinfo
+    weight: 100
+status: {}
